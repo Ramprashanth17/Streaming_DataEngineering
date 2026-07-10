@@ -1,0 +1,17 @@
+Installed kafka 4.3.1 natively. As per the book created 3 brokers/server KRaft Cluster - created broker-id, shared controller.quorum.voters list, etc.
+- Formatted all 3 with a shared cluster_id, via kafka-storage.sh: This is like a unique id for the group, and prevents mismatched brokers from joining this group.
+- Learned that kafka-topics.sh is a wrapper, not a script to directly write the code.
+- Since, I config the cluster with 3 brokers, and the quorum voters to be 3, I have to start 3 clusters, eventhough I am trying to learn with just 1, majority follows.
+- Built a custom stop script for stopping one broker at a time, without killing the other.
+
+CHAPTER-2 HANDS-ON learning
+
+Topics, are similar to tables in the DB, to store data related to a particular subject. Kafka doesn't enforce schema, the onus is upon the user to do that.
+To create a topic, use kafka-topics.sh, specify the partition and replication factor over here. For now its just 1.
+
+- Kafka-consumer won't display messages, as it reads the topic at the end, to display messages use the flag --from-beginning
+- kafka-console-producer.sh to create the message. 
+- The common thread between consumer and producer is the topic name, this topic name clubs the consumers and producers into a group implicitly. And, there won't be cross contamination from other producers.
+- You can have multiple producers and consumers to either write and read the data, for that topic. 
+- Replication factor-1 means if a server is dead or down, your topic is unavailable, to ensure fault-tolerance, keep it above 1, depending on the brokers.
+
