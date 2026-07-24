@@ -1,0 +1,6 @@
+Built the Docker based kafka cluster, created with just 1 broker, with future plans of increasing it to either 3 or 5 for fault tolerance, and reliability.
+Created market.prices.raw topic, with 3 partitions, ticker-keyed per ADR-0001.
+
+Chose Finnhub over Alpacca API, as Alpacca API was asking for SSN details, etc. Since, I am just getting started or in the initial phase, I'll go with Finnhub, but will later change to Alpacca for its features such as broker/trading API, etc.
+
+Wrote producer.py, and consumer.py for Producers and Consumers. Confirmed that flow of events through producers and consumers is good
